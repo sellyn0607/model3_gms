@@ -7,7 +7,7 @@ import lombok.Data;
 @Component // 얘를 빈으로 사용한다는뜻
 @Data // getter setter
 public class Member {
-	//
+	
 	String 	userid,
 			password,
 			ssn,
