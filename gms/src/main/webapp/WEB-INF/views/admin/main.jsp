@@ -4,7 +4,7 @@
 
 <!doctype html>
 <html lang="en">
-<jsp:include page="../common/head.jsp" />
+<%-- <jsp:include page="../common/head.jsp" /> --%>
 <body>
 <div id="wrapper">
 	<div id="header">
