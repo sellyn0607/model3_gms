@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 body{
 		font-family: 'Malgun Gothic', 'Verdana';
 		background-color: #ffffff;
@@ -32,7 +32,7 @@ div#header{
 div#title-box{
 	float : left;
 	text-align: center;
-	display: block; /* �ٹٲ� */
+	display: block; /* 줄바꿈 */
 	
 }
 div#Login-box{
