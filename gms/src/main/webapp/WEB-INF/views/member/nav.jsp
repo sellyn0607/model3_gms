@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a id="nav_home_btn" class="navbar-brand">Start Bootstrap</a>
+        <a class="navbar-brand" id="nav_home_btn">Start Bootstrap</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -21,10 +21,10 @@
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a id="login_btn" class="nav-link" href="#">로그인</a>
+              <a id="mypage_btn"class="nav-link" href="#">마이페이지</a>
             </li>
             <li class="nav-item">
-              <a id="join_btn" class="nav-link" href="#">회원가입</a>
+              <a id="logout_btn" class="nav-link" href="#">로그아웃</a>
             </li>
           </ul>
         </div>

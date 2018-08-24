@@ -170,7 +170,7 @@
 <script>
 $('#login_btn').on('click',function(){
 		alert('로그인클릭');
-});
+}); al
 </script>
   </body>
 

@@ -1,11 +1,16 @@
 package com.gms.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.gms.web.domain.MemberDTO;
 
 @Controller
 @RequestMapping("/member")
 public class MemberController {
+	@Autowired MemberDTO member;
 	@RequestMapping("/add")
 	public void add() {
 		
@@ -34,18 +39,19 @@ public class MemberController {
 	public void remove() {
 		
 	}
-	@RequestMapping("/login")
-	public void login() {
+	@RequestMapping("/login/{dir}/{page}")
+	public String login(@PathVariable String dir,
+			@PathVariable String page) {
+		
+				return "login:"+dir+"/"+page+".tiles";
 		
 	}
 	@RequestMapping("/logout")
-	public void logout() {
-		
+	public String logout() {
+			
+		return "redirect:/";
 	}
-	@RequestMapping("/move")
-	public void move() {
-		
-	}
+	
 	@RequestMapping("/fileupload")
 	public void fileupload() {
 		

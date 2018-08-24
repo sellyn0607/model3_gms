@@ -1,14 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-	<div id="content-box" style="text-align: left;">
-	<div id="user" >
-	<h1>로그인</h1>
-	<form id="loginForm"  style="border:1px solid black;">
-	&nbsp; 아이디 <br />
-	 &nbsp;<input type="text" name="userid" ><br><Br>
-	&nbsp; 비밀번호<br />
-	&nbsp; <input type="password" name="pw" ><br><br>
-	 <input type="hidden" name="action" value="login" />
-	<input type="hidden" name="page" value="retrieve"/>
-	<input id="loginFormBtn" type="button" value="로그인"><br>
-	</form></div></div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="${context}/resources/css/login.css" />
+
+  
+  <form class="modal-content" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button id="loginForm_Btn" type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+
 
