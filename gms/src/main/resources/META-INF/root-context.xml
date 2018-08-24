@@ -34,7 +34,7 @@
 			</list>
 		</property>
 	</bean>
-	
+	<!--  -->
 				<bean id="tilesConfigurer" 
 					  class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 					<property name="definitions">
@@ -45,5 +45,8 @@
 				</bean>
 	
 	<context:component-scan base-package="com.gms.web" /><!--  .controller -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value=""></property>
+	</bean>	
 		
 </beans>
