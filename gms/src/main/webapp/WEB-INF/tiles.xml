@@ -16,6 +16,6 @@
 	</definition>
 	<definition name="login:*/*.tiles" extends="public">
 		<put-attribute name="nav" value="/WEB-INF/views/{1}/{2}.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/common/content.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/member/retrieve.jsp"/>
 	</definition>		
 </tiles-definitions>

@@ -12,8 +12,8 @@
 	<link href="${context}/resources/css/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-	
 	<link href="${context}/resources/css/css2/clean-blog.min.css" rel="stylesheet">
+	<link href="${context}/resources/css/style.css" rel="stylesheet">
 	<!--  -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -42,6 +42,13 @@
     	<script src="${context}/resources/js/js2/clean-blog.min.js"></script>
 <script>
 app.init('${context}');
+app.user({name:'${user.name}',
+		  userid: '${user.userid}',
+		  roll:'${user.roll}',
+		  age:'${user.age}',
+		  teamid:'${user.teamid}',
+		  gender:'${user.gender}'
+});
 </script>
 
 </body>

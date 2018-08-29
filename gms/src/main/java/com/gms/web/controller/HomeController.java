@@ -35,7 +35,7 @@ public class HomeController {
 			
 		logger.info("Welcome home :: move!! The client locale is {}.","Enter" );
 		String ret = "public:"+dir+"/"+page+".tiles";
-		/*if(page.equals("login")) {
+		/*if(page.equals("login")) { 
 			ret = "auth:"+dir+"/"+page+".tiles";
 		}*/
 		return ret;

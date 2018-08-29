@@ -3,7 +3,7 @@
 <table style="margin:100px 450px 0px" >
 	<tr>
 		<td rowspan="3" colspan="2" >
-		<img src="${img}/${imgfile}" alt="" style="width:400px; height: 300px"/>
+		<img src="" alt="" style="width:400px; height: 300px"/>
 		</td>
 		<td>ID</td>
 		<td>${user.userid}</td>
@@ -22,7 +22,7 @@
 		<td>나이</td>
 		<td>${user.age}</td>
 		<td>팀명</td>
-		<td>${user.teamId}</td>
+		<td>${user.teamid}</td>
 		
 	</tr>
 	<tr>
@@ -32,9 +32,14 @@
 		<td>${user.roll}</td>
 	</tr>
 </table>
- <c:choose>
- <c:when test="${match eq 'TRUE'}">
-	<button id = "myPageUpdate" style="margin-left:52%;">Update 이동</button>
-	<button id = "myPageDelete" style="margin-left: 2%"> 회원탈퇴 </button>
-	</c:when>
-</c:choose>
+
+
+
+	<button id = "myPageUpdate_btn" style="margin-left:52%;">Update 이동</button>
+	<button id = "myPageDelete_btn" style="margin-left: 2%"> 회원탈퇴 </button>
+	
+<script>
+app.user('${user}');
+</script>
+	
+

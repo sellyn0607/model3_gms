@@ -1,5 +1,6 @@
 package com.gms.web.mapper;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +19,9 @@ public class MemberMapper implements MemberDAO {
 			"com.gms.web.mapper.MemberMapper";
 	@Override
 	public void insert(MemberDTO p) {
-		// TODO Auto-generated method stub
+		System.out.println("넘어옵니까?");
+		SqlSession sqlSession = factory.openSession();
+		sqlSession.insert(ns+".insert",p);
 		
 	}
 
@@ -35,9 +38,9 @@ public class MemberMapper implements MemberDAO {
 	}
 
 	@Override
-	public MemberDTO selectOne(Map<?, ?> p) {
+	public MemberDTO selectOne(String p) {
 		SqlSession sqlSession = factory.openSession();
-		return (MemberDTO) sqlSession.selectOne(ns+".selectOne",p);
+		return sqlSession.selectOne(ns+".retrieve",p);
 	}
 
 	@Override
@@ -47,21 +50,22 @@ public class MemberMapper implements MemberDAO {
 	}
 
 	@Override
-	public void update(Map<?, ?> p) {
-		// TODO Auto-generated method stub
+	public void update(MemberDTO p) {
+		SqlSession sqlSession = factory.openSession();
+		sqlSession.update(ns+".update",p);	
 		
 	}
 
 	@Override
-	public void delete(Map<?, ?> p) {
-		// TODO Auto-generated method stub
-		
+	public void delete(MemberDTO p) {
+		SqlSession sqlSession = factory.openSession();
+		sqlSession.delete(ns+".delete",p);		
 	}
 
 	@Override
-	public MemberDTO login(Map<?, ?> p) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean login(MemberDTO p) {
+		SqlSession sqlSession = factory.openSession();
+		return sqlSession.selectOne(ns+".login",p)!=null? true:false;
 	}
 
 }

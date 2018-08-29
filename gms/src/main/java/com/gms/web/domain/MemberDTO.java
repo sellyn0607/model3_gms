@@ -10,10 +10,10 @@ public class MemberDTO {
 	//
 	String 	userid,
 			password,
-			ssn,
+			ssn,ssn2,
 			name,
 			roll,
-			teamId,
+			teamid,
 			age,
 			subject,
 			gender;

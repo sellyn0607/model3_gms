@@ -3,10 +3,18 @@ package com.gms.web.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.support.RequestPartServletServerHttpRequest;
 
 import com.gms.web.domain.MemberDTO;
 import com.gms.web.service.MemberService;
@@ -16,9 +24,13 @@ import com.gms.web.service.MemberService;
 public class MemberController {
 	@Autowired MemberDTO member;
 	@Autowired MemberService memberService;
-	@RequestMapping("/add")
-	public void add() {
+	@RequestMapping(value="/add/{dir}/{page}",method=RequestMethod.POST)
+	public String add(@ModelAttribute("member") MemberDTO member,
+			@PathVariable String dir,
+			@PathVariable String page) {
 		
+		memberService.add(member);
+		return "public:"+dir+"/"+page+".tiles";
 	}
 	@RequestMapping("/list")
 	public void list() {
@@ -37,21 +49,35 @@ public class MemberController {
 		
 	}
 	@RequestMapping("/modify")
-	public void modify() {
+	public String modify(@ModelAttribute("member") MemberDTO member) {
+		/*member.setUserid("rlawns3");*/
+		System.out.println("안들어오니?"+member.getAge());
+		memberService.modify(member);
 		
+		return "redirect:/";
 	}
 	@RequestMapping("/remove")
-	public void remove() {
+	public String remove(@ModelAttribute("member") MemberDTO member) {
+		/*member.setUserid("rlawns2");*/
+		memberService.remove(member);
 		
+		return "redirect:/";
 	}
+	
 	@RequestMapping("/login/{dir}/{page}")
 	public String login(@PathVariable String dir,
-			@PathVariable String page) {
-			Map<String,String> p = new HashMap<>();
-			p.put("userid", "H1");
-			MemberDTO m = memberService.retrieve(p);
-			System.out.println(m.getName());
-				return "login:"+dir+"/"+page+".tiles";
+			@PathVariable String page,Model model,
+			@ModelAttribute("member") MemberDTO member) {
+			String result="";
+			if(memberService.login(member)) {
+				model.addAttribute("user", memberService.retrieve(member.getUserid()));
+				result ="login:"+dir+"/"+page+".tiles";
+				
+			}else {
+				result ="public:member/login.tiles";
+			}
+			
+				return result;
 		
 	}
 	@RequestMapping("/logout")

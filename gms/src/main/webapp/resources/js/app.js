@@ -18,8 +18,12 @@ app = {
 				location.href=app.x()+'/move/member/login';
 			});
 			$('#loginForm_Btn').click(()=>{
-				location.href=app.x()+'/member/login/member/nav'; //1,2,3 값
-			});
+				var form = document.getElementById('loginForm');
+				form.action = app.x()+"/member/login/member/nav";
+				form.method = "post";
+				form.submit();
+				/*location.href=app.x()+''; //1,2,3 값
+*/			});
 			
 			$('#logout_btn').click(()=>{
 				location.href=app.x()+'/member/logout';
@@ -29,12 +33,53 @@ app = {
 				location.href=app.x()+'/move/member/add';
 			});
 			$('#joinform_btn').click(()=>{
-				location.href=app.x()+'/move/member/login';
+				alert("회원가입버튼 클릭");
+				/*$('#joinForm').attr({
+					action:app.x()+"/member/add",
+					method:"POST"
+					
+				});
+				submit()*/
+				var form = document.getElementById('joinForm');
+				form.action = app.x()+"/member/add/common/content";
+				form.method = "post";
+				form.submit();
 			});
 			
 			$('#nav_home_btn').click(()=>{
 				location.href=app.x()+'/member/logout';
 			});
+
+			$('#mypage_btn').click(()=>{
+				location.href=app.x()+'/member/login/member/mypage';
+			});
+			
+			$('#myPageUpdate_btn').click(()=>{
+				location.href=app.x()+'/move/member/modify';
+				
+			});
+			
+			$('#myPageDelete_btn').click(()=>{
+				location.href=app.x()+'/move/member/remove';
+			});
+			
+			
+			$('#delete_btn').click(()=>{
+				var form = document.getElementById('deleteForm');
+				form.action = app.x()+"/member/remove";
+				form.method = "post";
+				form.submit();
+			});
+			
+			$('#updateform_Btn').click(()=>{
+				var form = document.getElementById('updateform');
+				form.action = app.x()+"/member/modify";
+				form.method = "post";
+				form.submit();
+			});
+			
+			$('#name').text(sessionStorage.getItem('name'));
+			
 		},
 		
 		setContentView : ()=>{
@@ -64,4 +109,12 @@ app.c= ()=>{
 };
 app.i= ()=>{
 	return app.session.path('img');
+};
+app.user=(x)=>{
+	sessionStorage.setItem('userid',x.userid);
+	sessionStorage.setItem('name',x.name);
+	sessionStorage.setItem('age',x.age);
+	sessionStorage.setItem('roll',x.roll);
+	sessionStorage.setItem('gender',x.gender);
+	sessionStorage.setItem('teamid',x.teamid);
 };

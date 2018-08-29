@@ -21,10 +21,10 @@
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a id="mypage_btn"class="nav-link" href="#">마이페이지</a>
+              <a id="mypage_btn"class="nav-link" >${user.name}페이지</a>
             </li>
             <li class="nav-item">
-              <a id="logout_btn" class="nav-link" href="#">로그아웃</a>
+              <a id="logout_btn" class="nav-link" >로그아웃</a>
             </li>
           </ul>
         </div>

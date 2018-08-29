@@ -4,6 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gms.web.mapper.MemberMapper">
   <select id="selectOne" resultType="com.gms.web.domain.MemberDTO">
-   SELECT NAME FROM MEMBER WHERE USERID LIKE #{userid}
+   SELECT USERID,NAME,AGE FROM MEMBER WHERE USERID LIKE #{userid} AND PASSWORD LIKE #{password}
   </select>
+  <insert id="insert">
+  	insert into member(userid,teamid,name,roll,password,ssn,age,gender) values(#{userid},#{teamid},#{name},#{roll},#{password},#{ssn},#{age},#{gender});
+  </insert>
+  <select id="login" resultType="com.gms.web.domain.MemberDTO">
+  	SELECT USERID FROM MEMBER WHERE USERID LIKE #{userid} AND PASSWORD LIKE #{password}
+  </select>
+  <select id="retrieve" resultType="com.gms.web.domain.MemberDTO">
+  	SELECT USERID,TEAMID,NAME,ROLL,SSN,AGE,GENDER FROM MEMBER WHERE USERID LIKE #{userid}
+  </select>
+  <delete id="delete">
+  	delete from member where userid like #{userid} and password like #{password} 
+  </delete>
+  <update id="update">
+  	update member set PASSWORD=#{password} ,roll= #{roll},teamid=#{teamid} where userid like #{userid}
+  </update>
 </mapper>
