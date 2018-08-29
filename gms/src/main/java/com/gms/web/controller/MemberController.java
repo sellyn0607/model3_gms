@@ -51,7 +51,7 @@ public class MemberController {
 	@RequestMapping("/modify")
 	public String modify(@ModelAttribute("member") MemberDTO member) {
 		/*member.setUserid("rlawns3");*/
-		System.out.println("안들어오니?"+member.getAge());
+		System.out.println("안들어오니?"+member.getUserid());
 		memberService.modify(member);
 		
 		return "redirect:/";

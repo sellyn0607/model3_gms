@@ -73,12 +73,24 @@ app = {
 			
 			$('#updateform_Btn').click(()=>{
 				var form = document.getElementById('updateform');
+				var node = document.createElement('input');
+				node.setAttribute('type','hidden');
+				node.setAttribute('name','userid');
+				node.setAttribute('id','userid');
+				node.setAttribute('value',sessionStorage.getItem('userid'));
+				alert(sessionStorage.getItem('userid'))
+				form.appendChild(node);
+			 		
 				form.action = app.x()+"/member/modify";
 				form.method = "post";
 				form.submit();
 			});
-			
+			$('#userid').text(sessionStorage.getItem('userid'));
 			$('#name').text(sessionStorage.getItem('name'));
+			$('#age').text(sessionStorage.getItem('age'));
+			$('#gender').text(sessionStorage.getItem('gender'));
+			$('#teamid').val(sessionStorage.getItem('teamid')).prop('selected',true);
+			$('#roll').val(sessionStorage.getItem('roll')).prop('selected',true);
 			
 		},
 		

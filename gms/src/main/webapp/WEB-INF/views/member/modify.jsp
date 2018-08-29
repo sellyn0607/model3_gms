@@ -7,7 +7,7 @@
 		<img src="" alt="" style="width:400px; height: 300px" />
 		</td>
 		<td>ID</td>
-		<td></td>
+		<td id="userid"></td>
 	</tr>
 	<tr>
 		<td>이름</td>
@@ -19,7 +19,7 @@
 	</tr>
 	<tr>
 		<td>나이</td>
-		<td></td>
+		<td id="age"></td>
 		<td>팀명</td>
 		<td>
 			<select id="teamid" name="teamid" >
@@ -31,7 +31,7 @@
 	</tr>
 	<tr>
 		<td>성별</td>
-		<td></td>
+		<td id="gender"></td>
 		<td>역할</td>
 		<td>
 			<select id="rollid" name="roll" >
@@ -44,7 +44,7 @@
 			</td>
 	</tr>
 </table>
-	
+	<!--  -->
 	<br /><input id="updateform_Btn" style="margin-left: 70%; width=100px "  type="button" value="수정" />
 </form>
 <%-- 	<form method="POST" enctype="multipart/form-data" action="${context}/member.do?action=fileupload&page=retrieve" style="margin-left: 400px">
