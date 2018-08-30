@@ -34,6 +34,9 @@
 			<div id="footer">
 				<tiles:insertAttribute name="footer"/>
 			</div>
+				<div id="se">
+				<tiles:insertAttribute name="se"/>
+			</div>
 		 <!-- Bootstrap core JavaScript -->
     	<script src="${context}/resources/css/vendor/jquery/jquery.min.js"></script>
     	<script src="${context}/resources/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -42,13 +45,7 @@
     	<script src="${context}/resources/js/js2/clean-blog.min.js"></script>
 <script>
 app.init('${context}');
-app.user({name:'${user.name}',
-		  userid: '${user.userid}',
-		  roll:'${user.roll}',
-		  age:'${user.age}',
-		  teamid:'${user.teamid}',
-		  gender:'${user.gender}'
-});
+
 </script>
 
 </body>

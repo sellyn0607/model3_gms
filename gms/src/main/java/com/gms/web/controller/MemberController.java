@@ -48,13 +48,14 @@ public class MemberController {
 	public void count() {
 		
 	}
-	@RequestMapping("/modify")
-	public String modify(@ModelAttribute("member") MemberDTO member) {
+	@RequestMapping("/modify/{dir}/{page}")
+	public String modify(@ModelAttribute("member") MemberDTO member,Model model,@PathVariable String dir,
+			@PathVariable String page) {
 		/*member.setUserid("rlawns3");*/
 		System.out.println("안들어오니?"+member.getUserid());
 		memberService.modify(member);
-		
-		return "redirect:/";
+		model.addAttribute("user", memberService.retrieve(member.getUserid()));
+		return "login:"+dir+"/"+page+".tiles";
 	}
 	@RequestMapping("/remove")
 	public String remove(@ModelAttribute("member") MemberDTO member) {

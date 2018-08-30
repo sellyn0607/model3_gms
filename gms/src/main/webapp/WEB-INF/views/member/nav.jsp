@@ -30,3 +30,12 @@
         </div>
       </div>
     </nav>
+    <script>
+    app.user({name:'${user.name}',
+  	  userid: '${user.userid}',
+  	  roll:'${user.roll}',
+  	  age:'${user.age}',
+  	  teamid:'${user.teamid}',
+  	  gender:'${user.gender}'
+  });
+    </script>

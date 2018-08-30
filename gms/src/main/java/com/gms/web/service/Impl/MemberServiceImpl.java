@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gms.web.domain.MemberDTO;
-import com.gms.web.repository.MemberDAO;
+import com.gms.web.mapper.MemberMapper;
 import com.gms.web.service.MemberService;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-	@Autowired MemberDAO memberDAO;
+	@Autowired MemberMapper memberDAO;
 	@Override
 	public void add(MemberDTO p) {
 		System.out.println("임플넘어옵니까");
@@ -69,7 +69,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean login(MemberDTO p) {
 		
-		return memberDAO.login(p);
+		return memberDAO.login(p)==1;
 	}
 
 }

@@ -34,7 +34,7 @@
 		<td id="gender"></td>
 		<td>역할</td>
 		<td>
-			<select id="rollid" name="roll" >
+			<select id="roll" name="roll" >
 			 <option class= "roll" value="팀장" >팀장</option>
 			<option class= "roll" value="팀원" >	팀원</option>
 			<option class= "roll" value="프론트개발" >프론트개발</option>
@@ -44,7 +44,7 @@
 			</td>
 	</tr>
 </table>
-	<!--  -->
+	
 	<br /><input id="updateform_Btn" style="margin-left: 70%; width=100px "  type="button" value="수정" />
 </form>
 <%-- 	<form method="POST" enctype="multipart/form-data" action="${context}/member.do?action=fileupload&page=retrieve" style="margin-left: 400px">

@@ -1,6 +1,8 @@
 "use strict";
 var app=app || {};
 			/*app.setContentView();p =app || {};*/
+var user= user || {};
+
 app = {
 		init : x =>{
 			console.log("step1");
@@ -56,6 +58,7 @@ app = {
 			
 			$('#myPageUpdate_btn').click(()=>{
 				location.href=app.x()+'/move/member/modify';
+				alert(sessionStorage.getItem('userid'))
 				
 			});
 			
@@ -66,6 +69,13 @@ app = {
 			
 			$('#delete_btn').click(()=>{
 				var form = document.getElementById('deleteForm');
+				var node = document.createElement('input');
+				node.setAttribute('type','hidden');
+				node.setAttribute('name','userid');
+				node.setAttribute('id','userid');
+				node.setAttribute('value',sessionStorage.getItem('userid'));
+				alert(sessionStorage.getItem('userid'))
+				form.appendChild(node);
 				form.action = app.x()+"/member/remove";
 				form.method = "post";
 				form.submit();
@@ -81,7 +91,7 @@ app = {
 				alert(sessionStorage.getItem('userid'))
 				form.appendChild(node);
 			 		
-				form.action = app.x()+"/member/modify";
+				form.action = app.x()+"/member/modify/member/nav";
 				form.method = "post";
 				form.submit();
 			});
@@ -123,10 +133,17 @@ app.i= ()=>{
 	return app.session.path('img');
 };
 app.user=(x)=>{
-	sessionStorage.setItem('userid',x.userid);
+	$.each(x,function(k,v){
+		sessionStorage.setItem(k,v);
+	});
+	/*sessionStorage.setItem('userid',x.userid);
 	sessionStorage.setItem('name',x.name);
 	sessionStorage.setItem('age',x.age);
 	sessionStorage.setItem('roll',x.roll);
 	sessionStorage.setItem('gender',x.gender);
-	sessionStorage.setItem('teamid',x.teamid);
+	sessionStorage.setItem('teamid',x.teamid);*/
+};
+
+user.session=x=>{
+	
 };
