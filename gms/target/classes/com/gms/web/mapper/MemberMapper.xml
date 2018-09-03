@@ -22,4 +22,3 @@
   	update member set PASSWORD=#{password} ,roll= #{roll},teamid=#{teamid} where userid like #{userid}
   </update>
 </mapper>
-//
